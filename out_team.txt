@@ -1,0 +1,18 @@
+1839: <section class="team" id="team" aria-labelledby="team-heading" style="background: var(--off-white); padding: 7rem 0;">
+1923: <div class="team__grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2.5rem;">
+1925: <div class="team-card-v2 reveal reveal-delay-1">
+1926: <div class="team-card-v2__img-wrap">
+1929: <div class="team-card-v2__content">
+1932: <div class="team-card-v2__social">
+1939: <div class="team-card-v2 reveal reveal-delay-2">
+1940: <div class="team-card-v2__img-wrap">
+1943: <div class="team-card-v2__content">
+1946: <div class="team-card-v2__social">
+1953: <div class="team-card-v2 reveal reveal-delay-3">
+1954: <div class="team-card-v2__img-wrap">
+1957: <div class="team-card-v2__content">
+1960: <div class="team-card-v2__social">
+1967: <div class="team-card-v2 reveal reveal-delay-4">
+1968: <div class="team-card-v2__img-wrap">
+1971: <div class="team-card-v2__content">
+1974: <div class="team-card-v2__social">
