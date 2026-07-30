@@ -1506,31 +1506,97 @@
 			}
 			.partners__logos {
 				display: flex;
-				align-items: center;
+				align-items: stretch;
 				justify-content: center;
 				gap: 1rem;
 				flex-wrap: wrap;
 			}
-			.partner-pill {
-				background: var(--white);
+			.partner-card {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 0.75rem;
+				width: min(100%, 220px);
+				min-height: 160px;
+				background: linear-gradient(
+					145deg,
+					var(--white),
+					rgba(0, 90, 155, 0.03)
+				);
 				border: 1.5px solid var(--border);
-				border-radius: 100px;
-				padding: 10px 24px;
+				border-radius: 24px;
+				padding: 1.1rem 1rem;
+				text-align: center;
 				font-family: var(--ff-head);
 				font-size: 13px;
 				font-weight: 700;
 				color: var(--mid-gray);
 				transition:
-					color 0.2s,
-					border-color 0.2s,
-					transform 0.2s,
-					box-shadow 0.2s;
+					color 0.2s ease,
+					border-color 0.2s ease,
+					transform 0.2s ease,
+					box-shadow 0.2s ease;
 			}
-			.partner-pill:hover {
+			.partner-card:hover,
+			.partner-card:focus-within {
 				color: var(--blue);
 				border-color: var(--blue);
+				transform: translateY(-4px) scale(1.01);
+				box-shadow: 0 10px 24px rgba(0, 90, 155, 0.15);
+			}
+			.partner-card__logo-wrap {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 62px;
+				height: 62px;
+				border-radius: 50%;
+				background: linear-gradient(145deg, #ffffff, #f2f7fb);
+				box-shadow: inset 0 0 0 1px rgba(0, 90, 155, 0.08);
+				padding: 0.45rem;
+				flex-shrink: 0;
+			}
+			.partner-card__logo {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				filter: grayscale(1) contrast(0.95);
+				opacity: 0.72;
+				transition: all 0.2s ease;
+			}
+			.partner-card:hover .partner-card__logo,
+			.partner-card:focus-within .partner-card__logo {
+				filter: grayscale(0);
+				opacity: 1;
+				transform: scale(1.08);
+			}
+			.partner-card__name {
+				line-height: 1.3;
+				transition:
+					color 0.2s ease,
+					transform 0.2s ease;
+			}
+			.partner-card:hover .partner-card__name,
+			.partner-card:focus-within .partner-card__name {
+				color: var(--blue);
 				transform: translateY(-2px);
-				box-shadow: 0 6px 20px rgba(0, 90, 155, 0.12);
+			}
+
+			@media (max-width: 768px) {
+				.partner-card {
+					width: calc(50% - 0.5rem);
+					min-height: 150px;
+				}
+				.partner-card__logo {
+					filter: grayscale(0);
+					opacity: 1;
+					transform: none;
+				}
+				.partner-card__name {
+					color: var(--blue-dark);
+				}
 			}
 
 			/* ═══ NEWS ═══ */
@@ -3951,14 +4017,104 @@
 					<h3>Our Partners &amp; Clients</h3>
 				</div>
 				<div class="partners__logos reveal reveal-delay-1">
-					<div class="partner-pill">MAN Trucks</div>
-					<div class="partner-pill">Nestl&eacute; Nigeria</div>
-					<div class="partner-pill">PZ Cussons</div>
-					<div class="partner-pill">Nigerian Breweries</div>
-					<div class="partner-pill">Guinness Nigeria</div>
-					<div class="partner-pill">Frigoglass</div>
-					<div class="partner-pill">Flour Mills NG</div>
-					<div class="partner-pill">InfraCredit</div>
+					<div class="partner-card">
+						<span class="partner-card__logo-wrap">
+							<img
+								class="partner-card__logo"
+								src="companies/man.webp"
+								alt="MAN Trucks logo"
+							/>
+						</span>
+						<span class="partner-card__name">MAN Trucks</span>
+					</div>
+					<div class="partner-card">
+						<span class="partner-card__logo-wrap">
+							<img
+								class="partner-card__logo"
+								src="companies/nestle.png"
+								alt="Nestlé Nigeria logo"
+							/>
+						</span>
+						<span class="partner-card__name"
+							>Nestl&eacute; Nigeria</span
+						>
+					</div>
+					<div class="partner-card">
+						<span class="partner-card__logo-wrap">
+							<img
+								class="partner-card__logo"
+								src="companies/PZ_Cussons_logo.svg"
+								alt="PZ Cussons logo"
+							/>
+						</span>
+						<span class="partner-card__name">PZ Cussons</span>
+					</div>
+					<div class="partner-card">
+						<span class="partner-card__logo-wrap">
+							<img
+								class="partner-card__logo"
+								src="companies/nigeriabreweries.png"
+								alt="Nigerian Breweries logo"
+							/>
+						</span>
+						<span class="partner-card__name"
+							>Nigerian Breweries</span
+						>
+					</div>
+					<div class="partner-card">
+						<span
+							class="partner-card__logo-wrap"
+							style="
+								background: #000;
+								box-shadow: inset 0 0 0 1px
+									rgba(255, 255, 255, 0.12);
+							"
+						>
+							<img
+								class="partner-card__logo"
+								src="companies/guiness.png"
+								alt="Guinness Nigeria logo"
+							/>
+						</span>
+						<span class="partner-card__name">Guinness Nigeria</span>
+					</div>
+					<div class="partner-card">
+						<span
+							class="partner-card__logo-wrap"
+							style="
+								background: #000;
+								box-shadow: inset 0 0 0 1px
+									rgba(255, 255, 255, 0.12);
+							"
+						>
+							<img
+								class="partner-card__logo"
+								src="companies/Frigoglass.png"
+								alt="Frigoglass logo"
+							/>
+						</span>
+						<span class="partner-card__name">Frigoglass</span>
+					</div>
+					<div class="partner-card">
+						<span class="partner-card__logo-wrap">
+							<img
+								class="partner-card__logo"
+								src="companies/fmn-logo.png"
+								alt="Flour Mills of Nigeria logo"
+							/>
+						</span>
+						<span class="partner-card__name">Flour Mills NG</span>
+					</div>
+					<div class="partner-card">
+						<span class="partner-card__logo-wrap">
+							<img
+								class="partner-card__logo"
+								src="companies/InfraCredit.png"
+								alt="InfraCredit logo"
+							/>
+						</span>
+						<span class="partner-card__name">InfraCredit</span>
+					</div>
 				</div>
 			</div>
 		</section>
