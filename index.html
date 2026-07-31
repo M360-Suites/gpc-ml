@@ -1396,7 +1396,7 @@
 				stroke-width: 1.8;
 			}
 			.why-card__title {
-				font-family: var(--ff-head);
+				font-family: var(--ff-display);
 				font-size: 1.1rem;
 				font-weight: 700;
 				color: var(--blue-dark);
@@ -1461,6 +1461,9 @@
 			.csr-card:first-child {
 				grid-row: span 2;
 				min-height: auto;
+			}
+			.csr-card--right-column {
+				grid-column: 2;
 			}
 			.csr-card__img {
 				width: 100%;
@@ -1565,7 +1568,7 @@
 			.partner-card:hover,
 			.partner-card:focus-within {
 				color: var(--blue);
-				border-color: var(--blue);
+				/* border-color: var(--blue-dark); */
 				transform: translateY(-4px) scale(1.01);
 				box-shadow: 0 10px 24px rgba(0, 90, 155, 0.15);
 			}
@@ -2128,6 +2131,9 @@
 				}
 				.csr-card:first-child {
 					grid-column: span 1;
+				}
+				.csr-card--right-column {
+					grid-column: auto;
 				}
 				.cta-section__inner {
 					display: flex;
@@ -3241,53 +3247,30 @@
 
 					<!-- Item 5: Stat Card -->
 					<div
-						class="csr-card reveal reveal-delay-4"
+						class="csr-card csr-card--right-column reveal reveal-delay-4"
 						style="
 							background: rgba(0, 90, 155, 0.15);
 							border: 1px solid rgba(0, 90, 155, 0.25);
 							display: flex;
 							align-items: center;
 							justify-content: center;
-							flex-direction: column;
-							gap: 1rem;
-							padding: 2rem;
+
 							min-height: 240px;
 						"
 					>
-						<div
-							style="
-								font-family: var(--ff-head);
-								font-size: 3.5rem;
-								font-weight: 800;
-								color: var(--white);
-								line-height: 1;
-							"
-						>
-							&#x20A6;20<sup
-								style="font-size: 1.4rem; color: var(--amber)"
-								>bn</sup
-							>
-						</div>
-						<div
-							style="
-								font-family: var(--ff-head);
-								font-size: 11px;
-								font-weight: 700;
-								letter-spacing: 0.18em;
-								text-transform: uppercase;
-								color: rgba(255, 255, 255, 0.5);
-								text-align: center;
-							"
-						>
-							InfraCredit Bond<br />Guarantee
-						</div>
+						<img
+							class="csr-card__img"
+							src="images/csr-kini.png"
+							alt="GPC logistics infrastructure and capacity"
+							loading="lazy"
+						/>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- TEAM -->
-		<section
+		<!-- <section
 			class="team"
 			id="team"
 			aria-labelledby="team-heading"
@@ -4052,7 +4035,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 		<!-- PARTNERS -->
 		<section class="partners" aria-label="Partners and clients">
 			<div class="container">
@@ -4408,7 +4391,8 @@
 						<p class="footer__brand-desc">
 							The logistics partner of choice for Nigeria's
 							energy, industrial and consumer supply chains.
-							Always good to go.
+							<br />
+							<strong>#Let's go there</strong>
 						</p>
 						<div class="footer__social">
 							<a
@@ -4788,7 +4772,11 @@
 			const heroSlides = [
 				{
 					label: "Our Fleet",
-					image: "/images/herofleet.png",
+					images: [
+						"/images/herofleet.png",
+						"/images/heroasset2.png",
+						"/images/heroasset3.png",
+					],
 					content: "Built to Move Anything, Anywhere.",
 				},
 				{
@@ -4798,7 +4786,7 @@
 				},
 				{
 					label: "Our Social Impact",
-					image: "/images/herocsr.png",
+					image: "/images/hero-impact.png",
 					content: "Moving Product. Moving Communities.",
 				},
 				{
@@ -4823,6 +4811,7 @@
 			let heroSlideIndex = 0;
 			let heroTypingTimer = null;
 			let heroSlideTimer = null;
+			let fleetHeroImageIndex = 0;
 
 			function typeHeroSuffix(text) {
 				if (!heroLabelSuffix) return;
@@ -4877,8 +4866,15 @@
 							heroLabelSuffix.textContent = suffix;
 						}
 						if (heroSection) {
-							heroSection.style.backgroundImage = slide.image
-								? `url("${slide.image}")`
+							let slideImage = slide.image;
+							if (slide.images) {
+								slideImage = slide.images[fleetHeroImageIndex];
+								fleetHeroImageIndex =
+									(fleetHeroImageIndex + 1) %
+									slide.images.length;
+							}
+							heroSection.style.backgroundImage = slideImage
+								? `url("${slideImage}")`
 								: "";
 							heroSection.style.backgroundPosition = "center";
 							heroSection.style.backgroundRepeat = "no-repeat";
