@@ -298,11 +298,14 @@
 				display: block;
 				width: 24px;
 				height: 2px;
-				background: var(--blue-dark);
+				background: var(--white);
 				border-radius: 2px;
 				transition:
 					transform 0.3s,
 					opacity 0.3s;
+			}
+			.nav.scrolled .nav__hamburger span {
+				background: var(--blue-dark);
 			}
 			.nav__hamburger.active span:nth-child(1) {
 				transform: translateY(7px) rotate(45deg);
@@ -2071,6 +2074,12 @@
 				}
 				.why__grid {
 					grid-template-columns: 1fr 1fr;
+				}
+			}
+			@media (max-width: 768px) {
+				.nav__inner {
+					padding-left: 1rem;
+					padding-right: 1.5rem;
 				}
 			}
 			@media (max-width: 768px) {
