@@ -17,6 +17,7 @@
 		/>
 		<meta property="og:type" content="website" />
 		<title>GPC Energy and Logistics Limited — Always Good To Go</title>
+		<link rel="icon" type="image/png" href="/images/favicon.png" />
 
 		<style>
 			@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap");
@@ -250,12 +251,18 @@
 				font-size: 15px;
 				font-weight: 600;
 				letter-spacing: 0.02em;
-				color: var(--blue-dark);
+				color: var(--white);
 				padding: 6px 12px;
 				border-radius: 6px;
 				transition:
 					color 0.2s,
 					background 0.2s;
+			}
+			.nav.scrolled .nav__links a {
+				color: var(--blue-dark);
+			}
+			.nav:hover .nav__links a {
+				color: var(--blue-dark);
 			}
 			.nav__links a:hover {
 				color: var(--blue-dark);
@@ -394,6 +401,7 @@
 				}
 			}
 			.hero__left {
+				max-width: var(--max-w);
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
@@ -401,8 +409,6 @@
 				padding: 5rem var(--gutter) 5rem var(--gutter);
 				position: relative;
 				z-index: 2;
-				width: 100%;
-				max-width: 100%;
 			}
 			.hero__badge {
 				display: inline-flex;
@@ -1234,61 +1240,6 @@
 			}
 
 			/* ═══ STATS BAND ═══ */
-			/* .stats-band { */
-			/* background: var(--blue);
-				padding: 5rem 0;
-				position: relative;
-				overflow: hidden;
-			}
-			.stats-band::before {
-				content: "";
-				position: absolute;
-				width: 500px;
-				height: 500px;
-				background: radial-gradient(
-					circle,
-					rgba(255, 255, 255, 0.05) 0%,
-					transparent 70%
-				);
-				top: -150px;
-				right: -100px;
-				pointer-events: none;
-			}
-			.stats-band__inner {
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				text-align: center;
-				position: relative;
-				z-index: 1;
-			}
-			.stat-item {
-				padding: 2rem;
-				border-right: 1px solid rgba(255, 255, 255, 0.15);
-			}
-			.stat-item:last-child {
-				border-right: none;
-			}
-			.stat-item__num {
-				font-family: var(--ff-head);
-				font-size: clamp(2.4rem, 3.5vw, 3.2rem);
-				font-weight: 800;
-				color: var(--white);
-				line-height: 1;
-				margin-bottom: 0.5rem;
-			}
-			.stat-item__num span {
-				color: var(--amber);
-			}
-			.stat-item__label {
-				font-family: var(--ff-head);
-				font-size: 10px;
-				font-weight: 700;
-				letter-spacing: 0.2em;
-				text-transform: uppercase;
-				color: rgba(255, 255, 255, 0.45);
-			} */
-
-			/* ═══ SAFETY / HOW WE OPERATE ═══ */
 			.safety-band {
 				background: linear-gradient(180deg, #001a32 0%, #003260 100%);
 				padding: 6rem 0;
@@ -1936,22 +1887,23 @@
 				display: grid;
 				grid-template-columns: 2fr 1fr 1fr 1fr;
 				gap: 3rem;
-				margin-bottom: 4rem;
+				/* margin-bottom: 4rem; */
 				padding-bottom: 4rem;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 			}
 			.footer__brand-tagline {
 				font-family: var(--ff-head);
-				font-size: 1rem;
+				font-size: 0.7rem;
 				font-style: italic;
-				color: var(--dark-gray);
+				color: var(--blue-dark);
 				margin: 1rem 0;
 				line-height: 1.5;
 			}
 			.footer__brand-desc {
-				font-size: 0.875rem;
-				color: var(--mid-gray);
-				line-height: 1.85;
+				font-size: 0.9rem;
+				font-family: var(--ff-body);
+				color: var(--blue-dark);
+				line-height: 1.5;
 				margin-bottom: 1.5rem;
 			}
 			.footer__social {
@@ -1986,21 +1938,22 @@
 				transition: fill 0.2s;
 			}
 			.footer__col-title {
-				font-family: var(--ff-head);
-				font-size: 10px;
-				font-weight: 700;
-				letter-spacing: 0.22em;
+				font-family: var(--ff-body);
+				font-size: 12px;
+				font-weight: 800;
+				letter-spacing: 0.1em;
 				text-transform: uppercase;
 				color: var(--blue-dark);
 				margin-bottom: 1.25rem;
 			}
 			.footer__links li + li {
-				margin-top: 0.65rem;
+				margin-top: 0.2rem;
 			}
 			.footer__links a {
-				font-size: 13.5px;
-				color: var(--dark-gray);
+				font-size: 14px;
+				color: var(--blue-dark);
 				transition: color 0.2s;
+				font-weight: 400;
 				line-height: 1.5;
 			}
 			.footer__links a:hover {
@@ -2020,11 +1973,11 @@
 			}
 			.footer__contact-text {
 				font-size: 12.5px;
-				color: var(--mid-gray);
+				color: var(--blue-dark);
 				line-height: 1.65;
 			}
 			.footer__contact-text a {
-				color: var(--dark-gray);
+				color: var(--blue-dark);
 				transition: color 0.2s;
 			}
 			.footer__contact-text a:hover {
@@ -2039,8 +1992,8 @@
 			}
 			.footer__copy {
 				font-size: 12px;
-				color: var(--mid-gray);
-				font-family: var(--ff-head);
+				color: var(--blue-dark);
+				font-family: var(--ff-display);
 			}
 			.footer__legal {
 				display: flex;
@@ -2048,14 +2001,15 @@
 			}
 			.footer__legal a {
 				font-size: 12px;
-				color: var(--mid-gray);
-				font-family: var(--ff-head);
+				color: var(--blue-dark);
+				font-family: var(--ff-display);
 				font-weight: 600;
 				letter-spacing: 0.05em;
 				transition: color 0.2s;
 			}
 			.footer__legal a:hover {
 				color: var(--dark-gray);
+				text-decoration: underline;
 			}
 
 			/* ═══ RESPONSIVE ═══ */
@@ -2426,7 +2380,8 @@
 					style="flex-shrink: 0"
 				>
 					<img
-						src="images/logo.png"
+						id="nav-logo-image"
+						src="images/logo-white.png"
 						alt="GPC Energy and Logistics Logo"
 						style="height: 50px; width: auto; object-fit: contain"
 					/>
@@ -2885,7 +2840,7 @@
 					<div class="fleet__content reveal-left">
 						<span class="label">Our Fleet</span>
 						<h2 id="fleet-heading">
-							TOTAL COVERAGE<br /><em>ZERO COMPROMISE.</em>
+							Total coverage<br /><em>Zero compromise.</em>
 						</h2>
 						<p>
 							One of Nigeria's largest and most modern fleets,
@@ -4432,14 +4387,13 @@
 								"
 							/>
 						</div>
-						<p class="footer__brand-tagline">
+						<!-- <p class="footer__brand-tagline">
 							"The Logistics Partner of Choice."
-						</p>
+						</p> -->
 						<p class="footer__brand-desc">
-							GPC Energy and Logistics Limited is Nigeria's
-							leading precision truck logistics and supply chain
-							company — connecting businesses to markets across
-							West Africa since 2012.
+							The logistics partner of choice for Nigeria's
+							energy, industrial and consumer supply chains.
+							Always good to go.
 						</p>
 						<div class="footer__social">
 							<a
@@ -4530,7 +4484,7 @@
 						<ul class="footer__links">
 							<li>
 								<a href="https://gpcgroupltd.com/about/"
-									>About GPC Energy and Logistics</a
+									>About us</a
 								>
 							</li>
 							<li>
@@ -4711,12 +4665,32 @@
 		<script>
 			/* Nav scroll */
 			const nav = document.getElementById("main-nav");
+			const navLogoImage = document.getElementById("nav-logo-image");
+			const navLogoDefaultSrc = "images/logo-white.png";
+			const navLogoScrolledSrc = "images/logo.png";
+			let isNavHovered = false;
+			const updateNavLogo = () => {
+				navLogoImage.src =
+					isNavHovered || nav.classList.contains("scrolled")
+						? navLogoScrolledSrc
+						: navLogoDefaultSrc;
+			};
+			nav.addEventListener("mouseenter", () => {
+				isNavHovered = true;
+				updateNavLogo();
+			});
+			nav.addEventListener("mouseleave", () => {
+				isNavHovered = false;
+				updateNavLogo();
+			});
 			window.addEventListener("scroll", () => {
 				nav.classList.toggle("scrolled", window.scrollY > 60);
+				updateNavLogo();
 				document
 					.getElementById("scroll-top")
 					.classList.toggle("visible", window.scrollY > 400);
 			});
+			updateNavLogo();
 
 			/* Mobile menu */
 			const hamburger = document.getElementById("hamburger");
