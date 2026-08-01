@@ -490,68 +490,9 @@ body {
 	background: var(--white);
 	padding: 7rem 0;
 }
-.origin__grid {
-	display: grid;
-	grid-template-columns: 1fr 1.1fr;
-	gap: 5rem;
-	align-items: center;
-}
-.origin__visual {
-	position: relative;
-}
-.origin__img-wrap {
-	overflow: hidden;
-	border-radius: 16px;
-	position: relative;
-}
-.origin__img-wrap img {
-	width: 100%;
-	aspect-ratio: 4/3;
-	object-fit: cover;
-	border-radius: 16px;
-	box-shadow: 0 24px 64px rgba(0, 90, 155, 0.08);
-	transition: transform 0.5s var(--ease-out);
-	display: block;
-}
-.origin__visual:hover .origin__img-wrap img {
-	transform: scale(1.02);
-}
-.origin__frame {
-	position: absolute;
-	top: -12px;
-	left: -12px;
-	width: 56px;
-	height: 56px;
-	border-top: 3px solid var(--amber);
-	border-left: 3px solid var(--amber);
-	border-radius: 4px 0 0 0;
-	z-index: 1;
-}
-.origin__badge {
-	position: absolute;
-	bottom: -1.5rem;
-	right: -1.5rem;
-	background: var(--blue);
-	color: white;
-	border-radius: 14px;
-	padding: 1.5rem 1.75rem;
-	text-align: center;
-	box-shadow: 0 12px 40px rgba(0, 90, 155, 0.35);
-}
-.origin__badge-num {
-	font-family: var(--ff-head);
-	font-size: 2.4rem;
-	font-weight: 800;
-	color: var(--amber);
-	line-height: 1;
-}
-.origin__badge-label {
-	font-size: 10px;
-	font-weight: 700;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: rgba(255, 255, 255, 0.6);
-	margin-top: 4px;
+.origin__content--full {
+	max-width: 100%s;
+	margin: 0 auto;
 }
 .origin__content h2 {
 	font-family: var(--ff-head);
