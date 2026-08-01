@@ -39,7 +39,7 @@
 				>
 					<img
 						id="nav-logo-image"
-						src="images/logo.png"
+						src="images/logo-white.png"
 						alt="GPC Energy and Logistics Logo"
 						style="height: 50px; width: auto; object-fit: contain"
 					/>
@@ -81,7 +81,22 @@
 		</div>
 
 		<!-- HERO -->
-		<section class="page-hero" aria-label="About Us Hero">
+		<section
+			class="page-hero"
+			aria-label="About Us Hero"
+			style="
+				background-image:
+					linear-gradient(
+						90deg,
+						rgba(0, 24, 46, 0.8) 0%,
+						rgba(0, 24, 46, 0.4) 60%,
+						rgba(0, 24, 46, 0.2) 100%
+					),
+					url(&quot;/images/about-gpc.png&quot;);
+				background-size: cover;
+				background-position: center;
+			"
+		>
 			<div class="page-hero__inner">
 				<span class="label">About GPC</span>
 				<h1>The Story Behind <em>Every Mile</em></h1>
@@ -1491,14 +1506,35 @@
 			const hamburger = document.getElementById("hamburger");
 			const mobileMenu = document.getElementById("mobile-menu");
 			const scrollTopButton = document.getElementById("scroll-top");
+			const navLogoImage = document.getElementById("nav-logo-image");
+			const navLogoDefaultSrc = "images/logo-white.png";
+			const navLogoScrolledSrc = "images/logo.png";
+			let isNavHovered = false;
+
+			const updateNavLogo = () => {
+				navLogoImage.src =
+					isNavHovered || nav.classList.contains("scrolled")
+						? navLogoScrolledSrc
+						: navLogoDefaultSrc;
+			};
 
 			const updateScrollState = () => {
 				nav.classList.toggle("scrolled", window.scrollY > 60);
+				updateNavLogo();
 				scrollTopButton.classList.toggle(
 					"visible",
 					window.scrollY > 400,
 				);
 			};
+
+			nav.addEventListener("mouseenter", () => {
+				isNavHovered = true;
+				updateNavLogo();
+			});
+			nav.addEventListener("mouseleave", () => {
+				isNavHovered = false;
+				updateNavLogo();
+			});
 
 			updateScrollState();
 			window.addEventListener("scroll", updateScrollState, {
