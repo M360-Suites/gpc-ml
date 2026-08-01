@@ -613,7 +613,7 @@ body {
 	stroke-width: 1.8;
 }
 .value-card h3 {
-	font-family: var(--ff-head);
+	font-family: var(--ff-display);
 	font-size: 1.15rem;
 	font-weight: 700;
 	color: var(--white);
