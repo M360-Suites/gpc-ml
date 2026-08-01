@@ -552,14 +552,19 @@ body {
 }
 .values__grid {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 1.5rem;
+	align-items: stretch;
 }
 .value-card {
 	background: rgba(0, 40, 80, 0.5);
 	border: 1px solid rgba(255, 255, 255, 0.06);
 	border-radius: 16px;
 	padding: 2.5rem 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	min-height: 100%;
 	transition:
 		transform 0.3s var(--ease-out),
 		box-shadow 0.3s,
@@ -1234,7 +1239,7 @@ body {
 		right: 1rem;
 	}
 	.values__grid {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 	.operations__grid {
 		grid-template-columns: 1fr;
