@@ -1646,8 +1646,10 @@
 			}
 			.news__grid {
 				display: grid;
-				grid-template-columns: 1.4fr 1fr;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				grid-auto-rows: 1fr;
 				gap: 1.5rem;
+				align-items: stretch;
 			}
 			.news-featured {
 				background: var(--blue);
@@ -1655,6 +1657,8 @@
 				padding: 3rem;
 				position: relative;
 				overflow: hidden;
+				grid-column: span 2;
+				grid-row: span 1;
 			}
 			.news-featured::before {
 				content: "GPC";
@@ -1704,16 +1708,18 @@
 				color: var(--amber-dark);
 			}
 			.news-sidebar {
-				display: flex;
-				flex-direction: column;
-				gap: 1rem;
+				display: block;
 			}
 			.news-card {
 				background: var(--off-white);
 				border: 1px solid var(--border);
 				border-radius: 14px;
 				padding: 1.75rem;
-				flex: 1;
+				min-height: 220px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				height: 100%;
 				transition:
 					transform 0.2s,
 					box-shadow 0.2s,
@@ -1725,7 +1731,7 @@
 				border-color: rgba(0, 90, 155, 0.2);
 			}
 			.news-card__tag {
-				font-family: var(--ff-head);
+				font-family: var(--ff-display);
 				font-size: 9px;
 				font-weight: 700;
 				letter-spacing: 0.18em;
@@ -1734,19 +1740,75 @@
 				margin-bottom: 0.75rem;
 			}
 			.news-card__title {
-				font-family: var(--ff-head);
+				font-family: var(--ff-body);
 				font-size: 0.975rem;
 				font-weight: 700;
 				color: var(--blue-dark);
 				line-height: 1.35;
 				margin-bottom: 0.5rem;
+				display: block;
+				text-decoration: none;
 			}
 			.news-card__excerpt {
-				font-size: 13px;
+				font-size: 0.95rem;
 				color: var(--blue-dark);
-				line-height: 1.7;
+				line-height: 1.9;
+				margin-top: 0.75rem;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 4;
+				line-clamp: 4;
+				overflow: hidden;
+				flex: 1;
 			}
-
+			.news-card__footer {
+				display: flex;
+				justify-content: flex-end;
+				margin-top: 1rem;
+			}
+			.news-card__link {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 2.25rem;
+				height: 2.25rem;
+				border-radius: 999px;
+				background: rgba(0, 90, 155, 0.08);
+				color: var(--blue);
+				transition:
+					background 0.2s ease,
+					transform 0.2s ease,
+					color 0.2s ease;
+			}
+			.news-card__link:hover,
+			.news-card__link:focus-visible {
+				background: var(--blue);
+				color: var(--white);
+				transform: translateX(2px);
+			}
+			.news-card__link svg {
+				width: 1rem;
+				height: 1rem;
+			}
+			.news-card--span-2-col,
+			.news-card--span-2-row,
+			.news-card--wide {
+				grid-column: span 1;
+				grid-row: auto;
+			}
+			@media (max-width: 900px) {
+				.news__grid {
+					grid-template-columns: 1fr;
+				}
+				.news-featured,
+				.news-card,
+				.news-card--span-2-col,
+				.news-card--span-2-row,
+				.news-card--wide {
+					grid-column: auto;
+					grid-row: auto;
+				}
+			}
 			/* ═══ CTA ═══ */
 			.cta-section {
 				background: var(--amber);
@@ -2687,7 +2749,7 @@
 							</div>
 						</section>
 
-						<a href="/about.html" class="btn-blue"
+						<a href="/about.html" target="_parent" class="btn-blue"
 							>Read Our Full Story</a
 						>
 					</div>
@@ -4142,73 +4204,249 @@
 						<span class="label">Latest News</span>
 						<h2 id="news-heading">GPC in the Headlines</h2>
 					</div>
-					<a
-						href="https://gpcgroupltd.com/blog/"
-						class="btn-ghost-light"
-						style="
-							color: var(--blue);
-							border-color: rgba(0, 90, 155, 0.3);
-						"
-					>
-						All News
-						<svg
-							viewBox="0 0 16 16"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.8"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path d="M3 8h10M9 4l4 4-4 4" />
-						</svg>
-					</a>
 				</div>
 				<div class="news__grid">
-					<div class="news-featured reveal">
-						<div class="news-featured__tag">Press Release</div>
-						<div class="news-featured__headline">
-							InfraCredit and GPC Energy Sign &#x20A6;20bn Bond
-							Guarantee to Expand Logistics Capacity Across
-							Nigeria
-						</div>
-						<p class="news-featured__body">
-							Infrastructure Credit Guarantee Company Limited
-							(InfraCredit) has signed a landmark bond guarantee
-							with GPC Energy and Logistics Limited to fund the
-							acquisition of 220 new trucks — creating over 360
-							direct and indirect jobs for Nigerians and
-							significantly boosting cargo capacity in Nigeria's
-							logistics sector.
+					<div
+						class="news-card news-card--span-2-row reveal reveal-delay-1"
+					>
+						<div class="news-card__tag">Certification</div>
+						<a
+							href="https://businessday.ng/companies/article/logistic-firm-deepens-corporate-governance-gets-iso-certification/"
+							class="news-card__title"
+							>Logistic firm deepens corporate governance, gets
+							ISO certification</a
+						>
+						<p class="news-card__excerpt">
+							GPC continues to strengthen its governance and
+							compliance framework with ISO certification,
+							demonstrating the company's commitment to
+							operational excellence and rigorous risk management.
 						</p>
-						<div class="news-featured__meta">
-							Bond Issuance &middot; InfraCredit Partnership
-							&middot; 2023
+						<div class="news-card__footer">
+							<a
+								href="https://businessday.ng/companies/article/logistic-firm-deepens-corporate-governance-gets-iso-certification/"
+								class="news-card__link"
+								aria-label="Read more news"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<svg
+									viewBox="0 0 16 16"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path d="M3 8h10M9 4l4 4-4 4" />
+								</svg>
+							</a>
 						</div>
 					</div>
-					<div class="news-sidebar">
-						<div class="news-card reveal reveal-delay-1">
-							<div class="news-card__tag">Fleet Operations</div>
-							<div class="news-card__title">
-								GPC Deploys Real-Time Telematics Across Entire
-								Fleet Platform
-							</div>
-							<p class="news-card__excerpt">
-								Our proprietary platform now covers all active
-								trucks with live GPS, driver behaviour
-								monitoring, and automated maintenance alerts.
-							</p>
+					<div
+						class="news-card news-card--span-2-col reveal reveal-delay-2"
+					>
+						<div class="news-card__tag">Technology</div>
+						<a
+							href="https://businessday.ng/transport/article/acsc-seeks-tech-adoption-in-nigerias-logistics-supply-chain-industry/"
+							class="news-card__title"
+							>ACSC seeks tech adoption in Nigeria's logistics,
+							supply chain industry</a
+						>
+						<p class="news-card__excerpt">
+							Industry leaders are urging digital transformation
+							across logistics and supply chain operations,
+							highlighting automation, data visibility, and
+							greater efficiency as key growth drivers.
+						</p>
+						<div class="news-card__footer">
+							<a
+								href="https://businessday.ng/transport/article/acsc-seeks-tech-adoption-in-nigerias-logistics-supply-chain-industry/"
+								class="news-card__link"
+								aria-label="Read more news"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<svg
+									viewBox="0 0 16 16"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path d="M3 8h10M9 4l4 4-4 4" />
+								</svg>
+							</a>
 						</div>
-						<div class="news-card reveal reveal-delay-2">
-							<div class="news-card__tag">Partnerships</div>
-							<div class="news-card__title">
-								GPC Renews Long-Term Logistics Contracts with
-								Major FMCG Brands
-							</div>
-							<p class="news-card__excerpt">
-								Multi-year partnerships with Nestl&eacute;, PZ
-								Cussons, and Nigerian Breweries renewed —
-								cementing GPC's role as the logistics partner of
-								choice.
-							</p>
+					</div>
+					<div class="news-card reveal reveal-delay-3">
+						<div class="news-card__tag">Infrastructure</div>
+						<a
+							href="https://guardian.ng/business-services/infracredit-guarantees-issuance-of-n20b-infrastructure-bond/"
+							class="news-card__title"
+							>Infracredit guarantees issuance of N20b
+							infrastructure bond</a
+						>
+						<p class="news-card__excerpt">
+							InfraCredit’s bond guarantee supports GPC’s fleet
+							expansion, unlocking capacity for improved cargo
+							delivery and reinforcing critical transport
+							infrastructure investments.
+						</p>
+						<div class="news-card__footer">
+							<a
+								href="https://guardian.ng/business-services/infracredit-guarantees-issuance-of-n20b-infrastructure-bond/"
+								class="news-card__link"
+								aria-label="Read more news"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<svg
+									viewBox="0 0 16 16"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path d="M3 8h10M9 4l4 4-4 4" />
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="news-card reveal reveal-delay-4">
+						<div class="news-card__tag">Milestone</div>
+						<a
+							href="https://thenationonlineng.net/gpc-logistics-repositions-at-10/"
+							class="news-card__title"
+							>GPC Logistics repositions at 10</a
+						>
+						<p class="news-card__excerpt">
+							After a decade in business, GPC has realigned its
+							services and asset base to better serve industrial
+							and consumer customers across Nigeria’s major trade
+							corridors.
+						</p>
+						<div class="news-card__footer">
+							<a
+								href="https://thenationonlineng.net/gpc-logistics-repositions-at-10/"
+								class="news-card__link"
+								aria-label="Read more news"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<svg
+									viewBox="0 0 16 16"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path d="M3 8h10M9 4l4 4-4 4" />
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div
+						class="news-card news-card--span-2-col reveal reveal-delay-5"
+					>
+						<div class="news-card__tag">Leadership</div>
+						<a
+							href="https://www.thisdaylive.com/index.php/2020/10/04/elvis-okonji-touting-frustrating-haulage/"
+							class="news-card__title"
+							>ELVIS OKONJI; Touting Frustrating Haulage</a
+						>
+						<p class="news-card__excerpt">
+							Elvis Okonji shares the practical lessons from
+							Nigeria’s haulage challenges and how GPC is building
+							a more resilient logistics network for clients.
+						</p>
+						<div class="news-card__footer">
+							<a
+								href="https://www.thisdaylive.com/index.php/2020/10/04/elvis-okonji-touting-frustrating-haulage/"
+								class="news-card__link"
+								aria-label="Read more news"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<svg
+									viewBox="0 0 16 16"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path d="M3 8h10M9 4l4 4-4 4" />
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="news-card reveal reveal-delay-6">
+						<div class="news-card__tag">Growth</div>
+						<a
+							href="https://nairametrics.com/2026/02/27/how-rejecting-a-n10-billion-deal-built-one-of-nigerias-largest-haulage-companies/"
+							class="news-card__title"
+							>How rejecting a N10 billion deal built one of
+							Nigeria’s largest haulage companies</a
+						>
+						<p class="news-card__excerpt">
+							Rejecting a single deal allowed GPC to stay
+							disciplined and pursue higher-value growth, turning
+							strategic restraint into a platform for long-term
+							competitive strength.
+						</p>
+						<div class="news-card__footer">
+							<a
+								href="https://nairametrics.com/2026/02/27/how-rejecting-a-n10-billion-deal-built-one-of-nigerias-largest-haulage-companies/"
+								class="news-card__link"
+								aria-label="Read more news"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<svg
+									viewBox="0 0 16 16"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path d="M3 8h10M9 4l4 4-4 4" />
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div
+						class="news-card news-card--wide reveal reveal-delay-7"
+					>
+						<div class="news-card__tag">Social</div>
+						<a
+							href="https://www.linkedin.com/posts/gpc-energy-and-logistics-ltd-is-scaling-its-ugcPost-7427653024615034880-ZWBU?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAAVc1AMBBCpM_lDHktmCfWdTdDrDsEynT_4&utm_campaign=whatsapp"
+							class="news-card__title"
+							>GPC Energy Expands Logistics Capacity in Nigeria
+							with Renewable Energy</a
+						>
+						<p class="news-card__excerpt">
+							GPC is driving sustainable growth by integrating
+							renewable energy priorities into its logistics
+							operations, signalling a long-term focus on
+							resilience and environmental performance.
+						</p>
+						<div class="news-card__footer">
+							<a
+								href="https://www.linkedin.com/posts/gpc-energy-and-logistics-ltd-is-scaling-its-ugcPost-7427653024615034880-ZWBU?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAAVc1AMBBCpM_lDHktmCfWdTdDrDsEynT_4&utm_campaign=whatsapp"
+								class="news-card__link"
+								aria-label="Read more news"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<svg
+									viewBox="0 0 16 16"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path d="M3 8h10M9 4l4 4-4 4" />
+								</svg>
+							</a>
 						</div>
 					</div>
 				</div>
