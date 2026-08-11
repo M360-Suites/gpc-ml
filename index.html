@@ -551,6 +551,38 @@
 				transform: translateX(4px);
 			}
 
+			.cta-avatar {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: clamp(50px, 12vw, 50px);
+				height: clamp(50px, 12vw, 50px);
+				/* margin: 0 auto 1rem; */
+				border-radius: 50%;
+				overflow: hidden;
+				border: 3px solid rgba(0, 90, 155, 0.12);
+				box-shadow: 0 10px 24px rgba(0, 90, 155, 0.16);
+				background: linear-gradient(
+					135deg,
+					rgba(251, 182, 12, 0.2),
+					rgba(0, 90, 155, 0.08)
+				);
+			}
+			.cta-avatar img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				display: block;
+			}
+
+			@media (max-width: 600px) {
+				.cta-avatar {
+					width: 40px;
+					height: 40px;
+				}
+			}
+
 			.hero__stats {
 				max-width: var(--max-w);
 				margin: 0 auto;
@@ -1548,7 +1580,7 @@
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				width: min(100%, 180px);
+				width: min(100%, 150px);
 				min-height: 160px;
 				border-radius: 24px;
 				padding: 1.1rem 1rem;
@@ -3364,6 +3396,15 @@
 						<span class="partner-card__logo-wrap">
 							<img
 								class="partner-card__logo"
+								src="companies/betaglass.png"
+								alt="Betaglass logo"
+							/>
+						</span>
+					</div>
+					<div class="partner-card">
+						<span class="partner-card__logo-wrap">
+							<img
+								class="partner-card__logo"
 								src="companies/nigeriabreweries.png"
 								alt="Nigerian Breweries logo"
 							/>
@@ -3385,15 +3426,7 @@
 							/>
 						</span>
 					</div>
-					<div class="partner-card">
-						<span class="partner-card__logo-wrap">
-							<img
-								class="partner-card__logo"
-								src="companies/betaglass.png"
-								alt="Betaglass logo"
-							/>
-						</span>
-					</div>
+
 					<div class="partner-card">
 						<span class="partner-card__logo-wrap">
 							<img
@@ -3416,6 +3449,16 @@
 						<span class="partner-card__logo-wrap">
 							<img
 								class="partner-card__logo"
+								style="height: 200px"
+								src="companies/sino.png"
+								alt="Sino logo"
+							/>
+						</span>
+					</div>
+					<div class="partner-card">
+						<span class="partner-card__logo-wrap">
+							<img
+								class="partner-card__logo"
 								src="companies/chivita.png"
 								alt="Chivita logo"
 							/>
@@ -3428,6 +3471,16 @@
 								style="height: 180px"
 								src="companies/promasidor1.png"
 								alt="Promasidor logo"
+							/>
+						</span>
+					</div>
+					<div class="partner-card">
+						<span class="partner-card__logo-wrap">
+							<img
+								class="partner-card__logo"
+								style="height: 200px"
+								src="companies/benzo.png"
+								alt="Benz logo"
 							/>
 						</span>
 					</div>
@@ -3719,24 +3772,47 @@
 								gap: 1rem;
 							"
 						>
-							<div>
+							<div
+								style="
+									display: flex;
+									flex-direction: row;
+									gap: 0.5rem;
+									justify-content: center;
+									align-items: center;
+								"
+							>
+								<span class="cta-avatar">
+									<img
+										src="/images/avatar.png"
+										alt="Avatar"
+									/>
+								</span>
 								<div
 									style="
-										font-family: var(--ff-head);
-										font-weight: 700;
-										font-size: 13px;
-										color: var(--blue-dark);
+										display: flex;
+										flex-direction: column;
+										justify-content: start;
+										align-items: start;
 									"
 								>
-									Speak to an Expert
-								</div>
-								<div
-									style="
-										font-size: 12px;
-										color: rgba(0, 40, 80, 0.6);
-									"
-								>
-									Mon&ndash;Fri, 8am &ndash; 6pm WAT
+									<div
+										style="
+											font-family: var(--ff-head);
+											font-weight: 700;
+											font-size: 13px;
+											color: var(--blue-dark);
+										"
+									>
+										Speak to an Expert
+									</div>
+									<div
+										style="
+											font-size: 12px;
+											color: rgba(0, 40, 80, 0.6);
+										"
+									>
+										Mon&ndash;Fri, 8am &ndash; 6pm WAT
+									</div>
 								</div>
 							</div>
 							<div
