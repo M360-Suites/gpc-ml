@@ -1308,6 +1308,21 @@ body {
 	}
 }
 
+@media (max-width: 768px) {
+	.nav__logo img {
+		height: 42px !important;
+	}
+}
+@media (max-width: 480px) {
+	.nav__logo img {
+		height: 34px !important;
+	}
+	.nav__cta {
+		padding: 6px 14px !important;
+		font-size: 12px !important;
+	}
+}
+
 @media (max-width: 480px) {
 	.nav__logo-badge {
 		width: 36px;

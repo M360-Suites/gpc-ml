@@ -408,9 +408,9 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
-				min-height: 100svh;
-				padding: 5rem var(--gutter) 5rem var(--gutter);
-				position: relative;
+				/* min-height: 100svh; */
+				padding: 6rem var(--gutter) 6rem var(--gutter);
+				/* position: relative; */
 				z-index: 2;
 			}
 			.hero__badge {
@@ -1540,7 +1540,7 @@
 				display: flex;
 				align-items: stretch;
 				justify-content: center;
-				gap: 1rem;
+				gap: 1.5rem;
 				flex-wrap: wrap;
 			}
 			.partner-card {
@@ -1548,15 +1548,8 @@
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				gap: 0.75rem;
-				width: min(100%, 250px);
+				width: min(100%, 180px);
 				min-height: 160px;
-				background: linear-gradient(
-					145deg,
-					var(--white),
-					rgba(0, 90, 155, 0.03)
-				);
-				border: 1.5px solid var(--border);
 				border-radius: 24px;
 				padding: 1.1rem 1rem;
 				text-align: center;
@@ -1567,25 +1560,25 @@
 				transition:
 					color 0.2s ease,
 					border-color 0.2s ease,
-					transform 0.2s ease,
-					box-shadow 0.2s ease;
+					transform 0.2s ease;
+				/* box-shadow 0.2s ease; */
 			}
 			.partner-card:hover,
 			.partner-card:focus-within {
 				color: var(--blue);
 				/* border-color: var(--blue-dark); */
 				transform: translateY(-4px) scale(1.01);
-				box-shadow: 0 10px 24px rgba(0, 90, 155, 0.15);
+				/* box-shadow: 0 10px 24px rgba(0, 90, 155, 0.15); */
 			}
 			.partner-card__logo-wrap {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				width: 62px;
-				height: 62px;
-				border-radius: 50%;
-				background: linear-gradient(145deg, #ffffff, #f2f7fb);
-				box-shadow: inset 0 0 0 1px rgba(0, 90, 155, 0.08);
+				width: auto;
+				height: auto;
+				/* border-radius: 50%; */
+				/* background: linear-gradient(145deg, #ffffff, #f2f7fb); */
+				/* box-shadow: inset 0 0 0 1px rgba(0, 90, 155, 0.08); */
 				padding: 0.45rem;
 				flex-shrink: 0;
 			}
@@ -1594,8 +1587,8 @@
 				width: 100%;
 				height: 100%;
 				object-fit: contain;
-				filter: grayscale(1) contrast(0.95);
-				opacity: 0.72;
+				/* filter: grayscale(1) contrast(0.95); */
+				/* opacity: 0.72; */
 				transition: all 0.2s ease;
 			}
 			.partner-card:hover .partner-card__logo,
@@ -1618,13 +1611,17 @@
 
 			@media (max-width: 768px) {
 				.partner-card {
-					width: calc(50% - 0.5rem);
-					min-height: 150px;
+					width: calc(40% - 0.2rem);
+					min-height: 110px;
 				}
 				.partner-card__logo {
-					filter: grayscale(0);
+					/* filter: grayscale(0); */
 					opacity: 1;
 					transform: none;
+				}
+				.partner-card__logo-wrap {
+					width: auto;
+					height: 80px;
 				}
 				.partner-card__name {
 					color: var(--blue-dark);
@@ -2500,7 +2497,6 @@
 			<a href="#services" class="mobile-link">Services</a>
 			<a href="#fleet" class="mobile-link">Fleet</a>
 			<a href="#csr" class="mobile-link">Impact</a>
-			<a href="#team" class="mobile-link">Team</a>
 			<a href="#contact" class="nav__cta mobile-link">Book a Truck</a>
 		</div>
 
@@ -2820,7 +2816,7 @@
 								<circle cx="18.5" cy="18.5" r="1.8" />
 							</svg>
 						</div>
-						<span class="service-card__num">01</span>
+						<!-- <span class="service-card__num">01</span> -->
 						<div class="service-card__title">Transportation</div>
 						<p class="service-card__desc">
 							Safe, top-notch haulage of liquid and solid products
@@ -2846,7 +2842,7 @@
 								<polyline points="9 22 9 12 15 12 15 22" />
 							</svg>
 						</div>
-						<span class="service-card__num">02</span>
+						<!-- <span class="service-card__num">02</span> -->
 						<div class="service-card__title">Warehousing</div>
 						<p class="service-card__desc">
 							Massive, climate-suitable storage facilities
@@ -2871,7 +2867,7 @@
 								<path d="M12 6v6l4 2" />
 							</svg>
 						</div>
-						<span class="service-card__num">03</span>
+						<!-- <span class="service-card__num">03</span> -->
 						<div class="service-card__title">Fleet Management</div>
 						<p class="service-card__desc">
 							360-degree visibility of your fleet through our
@@ -2897,7 +2893,7 @@
 								/>
 							</svg>
 						</div>
-						<span class="service-card__num">04</span>
+						<!-- <span class="service-card__num">04</span> -->
 						<div class="service-card__title">
 							Import &amp; Export
 						</div>
@@ -3345,7 +3341,6 @@
 								alt="MAN Trucks logo"
 							/>
 						</span>
-						<span class="partner-card__name">MAN Trucks</span>
 					</div>
 					<div class="partner-card">
 						<span class="partner-card__logo-wrap">
@@ -3355,9 +3350,6 @@
 								alt="Nestlé Nigeria logo"
 							/>
 						</span>
-						<span class="partner-card__name"
-							>Nestl&eacute; Nigeria</span
-						>
 					</div>
 					<div class="partner-card">
 						<span class="partner-card__logo-wrap">
@@ -3367,7 +3359,6 @@
 								alt="PZ Cussons logo"
 							/>
 						</span>
-						<span class="partner-card__name">PZ Cussons</span>
 					</div>
 					<div class="partner-card">
 						<span class="partner-card__logo-wrap">
@@ -3377,9 +3368,6 @@
 								alt="Nigerian Breweries logo"
 							/>
 						</span>
-						<span class="partner-card__name"
-							>Nigerian Breweries</span
-						>
 					</div>
 					<div class="partner-card">
 						<span
@@ -3396,7 +3384,6 @@
 								alt="Guinness Nigeria logo"
 							/>
 						</span>
-						<span class="partner-card__name">Guinness Nigeria</span>
 					</div>
 					<div class="partner-card">
 						<span class="partner-card__logo-wrap">
@@ -3406,7 +3393,6 @@
 								alt="Betaglass logo"
 							/>
 						</span>
-						<span class="partner-card__name">Betaglass</span>
 					</div>
 					<div class="partner-card">
 						<span class="partner-card__logo-wrap">
@@ -3416,7 +3402,6 @@
 								alt="Flour Mills of Nigeria logo"
 							/>
 						</span>
-						<span class="partner-card__name">Flour Mills NG</span>
 					</div>
 					<div class="partner-card">
 						<span class="partner-card__logo-wrap">
@@ -3426,7 +3411,6 @@
 								alt="InfraCredit logo"
 							/>
 						</span>
-						<span class="partner-card__name">InfraCredit</span>
 					</div>
 					<div class="partner-card">
 						<span class="partner-card__logo-wrap">
@@ -3436,17 +3420,16 @@
 								alt="Chivita logo"
 							/>
 						</span>
-						<span class="partner-card__name">Chivita</span>
 					</div>
 					<div class="partner-card">
 						<span class="partner-card__logo-wrap">
 							<img
 								class="partner-card__logo"
-								src="companies/promasidor.png"
+								style="height: 180px"
+								src="companies/promasidor1.png"
 								alt="Promasidor logo"
 							/>
 						</span>
-						<span class="partner-card__name">Promasidor</span>
 					</div>
 				</div>
 			</div>
@@ -4247,7 +4230,7 @@
 					content: "Every Asset, Tracked in Real Time.",
 				},
 				{
-					label: "Our Maintenance Facility",
+					label: "Our Maintenance Facilities",
 					image: "/images/heromaintain.png",
 					content: "Ready Before the Road Demands It.",
 				},

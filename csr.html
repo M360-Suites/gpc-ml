@@ -35,14 +35,53 @@
 					sans-serif;
 				--body: "Segoe UI", "Lucida Sans", system-ui, sans-serif;
 			}
+			.nav__mobile {
+				position: fixed;
+				top: var(--nav-h);
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(0, 14, 28, 0.97);
+				backdrop-filter: blur(24px);
+				-webkit-backdrop-filter: blur(24px);
+				z-index: 190;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 2.25rem;
+				transform: translateX(100%);
+				transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+				padding: 2rem;
+			}
+			.nav__mobile.open {
+				transform: translateX(0);
+			}
+			.nav__mobile a {
+				font-family: var(--ff-head);
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: rgba(255, 255, 255, 0.85);
+				transition: color 0.2s;
+				letter-spacing: -0.01em;
+			}
+			.nav__mobile a:hover {
+				color: var(--amber);
+			}
+			.nav__mobile .nav__cta {
+				margin-top: 0.5rem;
+				font-size: 1.3rem !important;
+				padding: 12px 36px !important;
+				border-radius: 10px !important;
+			}
 
 			.csr-hero {
 				background-image:
 					linear-gradient(
-						90deg,
-						rgba(0, 24, 46, 0.82) 0%,
-						rgba(0, 24, 46, 0.45) 60%,
-						rgba(0, 24, 46, 0.2) 100%
+						45deg,
+						rgba(0, 24, 46, 0.1) 0%,
+						rgba(0, 24, 46, 0.3) 50%,
+						rgba(0, 24, 46, 0.1) 100%
 					),
 					url("/images/csr-kini.png");
 				background-size: cover;
@@ -132,6 +171,11 @@
 
 			/* Responsive stacking for tablets and mobile */
 			@media (max-width: 768px) {
+				.nav__inner {
+					padding-left: 1rem;
+					padding-right: 1.5rem;
+				}
+
 				.csr-intro__flex {
 					flex-direction: column;
 					gap: 2.5rem;
@@ -169,13 +213,13 @@
 			}
 			.csr-pillars__grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-				gap: 2rem;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+				gap: 1rem;
 			}
 			.pillar-tile {
 				background: var(--white);
 				border-radius: 18px;
-				padding: 2.5rem 2rem;
+				padding: 1.5rem 1rem;
 				box-shadow: 0 12px 40px rgba(0, 90, 155, 0.06);
 				border: 1px solid rgba(0, 90, 155, 0.05);
 				transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -187,7 +231,7 @@
 			}
 			.pillar-tile__num {
 				font-family: var(--ff-body);
-				font-size: 0.75rem;
+				font-size: 0.65rem;
 				font-weight: 700;
 				letter-spacing: 0.1em;
 				color: var(--amber);
@@ -208,7 +252,7 @@
 			}
 			.pillar-tile h3 {
 				font-family: var(--ff-body);
-				font-size: 1.3rem;
+				font-size: 1rem;
 				font-weight: 600;
 				color: var(--blue-dark);
 				margin-bottom: 1rem;
@@ -294,6 +338,20 @@
 					gap: 1.5rem;
 				}
 			}
+			@media (max-width: 768px) {
+				.nav__logo img {
+					height: 42px !important;
+				}
+			}
+			@media (max-width: 480px) {
+				.nav__logo img {
+					height: 34px !important;
+				}
+				.nav__cta {
+					padding: 6px 14px !important;
+					font-size: 12px !important;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -301,7 +359,7 @@
 		<nav class="nav" id="main-nav" aria-label="Main navigation">
 			<div class="nav__inner">
 				<a
-					href="/"
+					href="/index.html"
 					target="_self"
 					class="nav__logo"
 					aria-label="GPC Energy and Logistics Home"
@@ -315,12 +373,23 @@
 					/>
 				</a>
 				<ul class="nav__links" role="list">
-					<li><a href="/about.html#about">About</a></li>
-					<li><a href="/index.html#services">Services</a></li>
-					<li><a href="/index.html#fleet">Fleet</a></li>
-					<li><a href="/csr.html" aria-current="page">Impact</a></li>
 					<li>
-						<a href="/about.html#contact" class="nav__cta"
+						<a href="/index.html#about" target="_self">About</a>
+					</li>
+					<li>
+						<a href="/index.html#services" target="_self"
+							>Services</a
+						>
+					</li>
+					<li>
+						<a href="/index.html#fleet" target="_self">Fleet</a>
+					</li>
+					<li><a href="/index.html#csr" target="_self">Impact</a></li>
+					<li>
+						<a
+							href="/index.html#contact"
+							class="nav__cta"
+							target="_self"
 							>Book a Truck</a
 						>
 					</li>
@@ -343,12 +412,22 @@
 			role="dialog"
 			aria-label="Mobile navigation"
 		>
-			<a href="/about.html" class="mobile-link">About</a>
-			<a href="/index.html#services" class="mobile-link">Services</a>
-			<a href="/index.html#fleet" class="mobile-link">Fleet</a>
-			<a href="/csr.html" class="mobile-link">Impact</a>
-			<a href="/about.html#team" class="mobile-link">Team</a>
-			<a href="/about.html#contact" class="nav__cta mobile-link"
+			<a href="/index.html#about" class="mobile-link" target="_self"
+				>About</a
+			>
+			<a href="/index.html#services" class="mobile-link" target="_self"
+				>Services</a
+			>
+			<a href="/index.html#fleet" class="mobile-link" target="_self"
+				>Fleet</a
+			>
+			<a href="/index.html#csr" class="mobile-link" target="_self"
+				>Impact</a
+			>
+			<a
+				href="/index.html#contact"
+				class="nav__cta mobile-link"
+				target="_self"
 				>Book a Truck</a
 			>
 		</div>
@@ -427,7 +506,6 @@
 
 				<div class="csr-pillars__grid">
 					<div class="pillar-tile reveal reveal-delay-1">
-						<span class="pillar-tile__num">Pillar 01</span>
 						<div class="pillar-tile__icon">
 							<svg
 								width="24"
@@ -461,7 +539,6 @@
 					</div>
 
 					<div class="pillar-tile reveal reveal-delay-2">
-						<span class="pillar-tile__num">Pillar 02</span>
 						<div class="pillar-tile__icon">
 							<svg
 								width="24"
@@ -499,7 +576,6 @@
 					</div>
 
 					<div class="pillar-tile reveal reveal-delay-3">
-						<span class="pillar-tile__num">Pillar 03</span>
 						<div class="pillar-tile__icon">
 							<svg
 								width="24"
@@ -533,7 +609,6 @@
 					</div>
 
 					<div class="pillar-tile reveal reveal-delay-4">
-						<span class="pillar-tile__num">Pillar 04</span>
 						<div class="pillar-tile__icon">
 							<svg
 								width="24"
