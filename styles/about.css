@@ -285,7 +285,7 @@ body {
 	display: block;
 	width: 24px;
 	height: 2px;
-	background: var(--blue-dark);
+	background: var(--white);
 	border-radius: 2px;
 	transition:
 		transform 0.3s,
